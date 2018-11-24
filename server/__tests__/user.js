@@ -57,7 +57,7 @@ describe('User authentication endpoint', () => {
         });
     });
 
-    it('should return register a user successfully', (done) => {
+    it('should register a user with valid inputs successfully', (done) => {
       server.post('/api/v1/auth/signup')
         .set('Connection', 'keep alive')
         .set('Content-Type', 'application/json')

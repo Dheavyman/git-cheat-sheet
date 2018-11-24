@@ -22,6 +22,11 @@ const UserSchema = new Schema({
     type: String,
     minlength: [8, 'Password must contain at least 8 characters.'],
     required: true,
+  },
+  role: {
+    type: String,
+    enum: ['admin', 'user'],
+    default: 'user',
   }
 });
 
