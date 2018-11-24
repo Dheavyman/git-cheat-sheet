@@ -9,6 +9,7 @@ const UserSchema = new Schema({
     type: String,
     unique: true,
     lowercase: true,
+    trim: true,
     required: true,
     validate: {
       validator: function(value) {
@@ -40,14 +41,8 @@ UserSchema.pre('save', async function(next) {
   }
 });
 
-UserSchema.methods.comparePassword = async function(password, cb) {
-  try {
-    const isMatch = await bcrypt.compare(password, this.password);
-
-    return cb(null, isMatch);
-  } catch (error) {
-    return cb(error)
-  }
+UserSchema.methods.validatePassword = async function(password) {
+  return bcrypt.compare(password, this.password);
 }
 
 const User = mongoose.model('User', UserSchema);
