@@ -12,6 +12,7 @@
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "joi": "^14.1.0",
+    "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.13",
     "morgan": "^1.9.1",
     "react": "^16.6.3",
@@ -23,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:dev": "nodemon --exec babel-node ./server"
+    "start:dev": "nodemon --exec babel-node ./server",
+    "test:server": "NODE_ENV=test nyc mocha --require @babel/register server/__tests__/**/*.js --exit"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,6 +38,20 @@
   ],
   "devDependencies": {
     "@babel/node": "^7.0.0",
-    "nodemon": "^1.18.6"
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.6",
+    "nyc": "^13.1.0",
+    "supertest": "^3.3.0"
+  },
+  "nyc": {
+    "exclude": [
+      "**/src",
+      "**/server/__tests__",
+      "**/server/models",
+      "**/server/db.js",
+      "**/server/index.js"
+    ]
   }
 }
