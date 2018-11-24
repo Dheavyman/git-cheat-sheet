@@ -14,7 +14,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mongoose.connect(DB_URL, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useCreateIndex: true,
 }, () => {
   console.log('Database connected');
 });
