@@ -9,9 +9,13 @@ import routes from './routes';
 dotenv.config();
 
 const app = express();
-const db = mongoose.connection;
+let dbConnection;
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+if (process.env.NODE_ENV !== 'test') {
+  dbConnection = mongoose.connection;
+  dbConnection.on(
+    'error', console.error.bind(console, 'MongoDB connection error:'));
+}
 
 app.use(logger('short'));
 app.use(bodyParser.json());
@@ -41,3 +45,5 @@ app.listen(app.get('port'), error => {
 
   console.log(`Server running on port ${app.get('port')}`);
 });
+
+export default app;
