@@ -86,4 +86,49 @@ describe('User authentication endpoint', () => {
         });
     });
   });
+
+  describe('Login user', () => {
+    it('should return error for invalid username', (done) => {
+      server.post('/api/v1/auth/login')
+        .set('Connection', 'keep alive')
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .send({ username: 'wrongUsername', password: 'password'})
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(401);
+          expect(res.body.status).to.equal('error');
+          expect(res.body.message).to.equal('Username or password incorrect');
+          done();
+        });
+    });
+
+    it('should return error for invalid password', (done) => {
+      server.post('/api/v1/auth/login')
+        .set('Connection', 'keep alive')
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .send({ username: 'acceptable', password: 'wrongPassword'})
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(401);
+          expect(res.body.status).to.equal('error');
+          expect(res.body.message).to.equal('Username or password incorrect');
+          done();
+        });
+    });
+
+    it('should login a valid user and return a token', (done) => {
+      server.post('/api/v1/auth/login')
+        .set('Connection', 'keep alive')
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .send({ username: 'acceptable', password: 'password'})
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body.status).to.equal('success');
+          expect(res.body.message).to.equal('User logged in');
+          expect(res.body.data.token).to.be.a('string');
+          done();
+        });
+    });
+  });
 });
