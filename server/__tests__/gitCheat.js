@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 import app from '../';
 import GitCheat from '../models/gitCheat';
 import User from '../models/user';
-import { unknownUserToken, cheats, createUser } from './__mocks__';
+import { unknownUserToken, cheats, createUser, createCheat } from './__mocks__';
 
 const server = supertest.agent(app);
 const expect = chai.expect;
@@ -117,7 +117,11 @@ describe('Git cheat endpoint', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(201);
           expect(res.body.status).to.equal('success');
-          expect(res.body.message).to.equal('Git cheat created')
+          expect(res.body.message).to.equal('Git cheat created');
+          expect(res.body.data.cheat.category).to.equal(cheats[0].category);
+          expect(res.body.data.cheat.description).to.equal(cheats[0].description);
+          expect(res.body.data.cheat.command).to.equal(cheats[0].command);
+          expect(res.body.data.cheat.keywords).to.be.an('array').with.length(0);
           done();
         });
     });
@@ -163,6 +167,51 @@ describe('Git cheat endpoint', () => {
           expect(res.statusCode).to.equal(400);
           expect(res.body.status).to.equal('error');
           expect(res.body.message).to.equal('Input `command` is required')
+          done();
+        });
+    });
+  });
+
+  describe('Get all cheats', () => {
+    let user;
+
+    before(async () => {
+      user = await createUser(User, jwt, false, 2);
+      await createCheat(GitCheat, 0);
+      await createCheat(GitCheat, 1);
+    });
+
+    after((done) => {
+      GitCheat.deleteMany({}, (err) => {
+        User.deleteMany({}, (err) => {
+          done();
+        });
+      });
+    });
+
+    it('should return an error for unauthenticated user', done => {
+      server.get('/api/v1/cheats')
+        .set('Connection', 'keep alive')
+        .set('Accept', 'application/json')
+        .set('x-access-token', unknownUserToken)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(404);
+          expect(res.body.status).to.equal('error');
+          expect(res.body.message).to.equal('User not found');
+          done();
+        });
+    });
+
+    it('should get all cheats for authenticated user', done => {
+      server.get('/api/v1/cheats')
+        .set('Connection', 'keep alive')
+        .set('Accept', 'application/json')
+        .set('x-access-token', user.token)
+        .end((err, res) => {
+          expect(res.statusCode).to.equal(200);
+          expect(res.body.status).to.equal('success');
+          expect(res.body.message).to.equal('Cheats fetched');
+          expect(res.body.data.cheats).to.be.an('array').with.length(2);
           done();
         });
     });
