@@ -57,7 +57,7 @@ describe('User authentication endpoint', () => {
         });
     });
 
-    it('should return register a user successfully', (done) => {
+    it('should register a user with valid inputs successfully', (done) => {
       server.post('/api/v1/auth/signup')
         .set('Connection', 'keep alive')
         .set('Content-Type', 'application/json')
@@ -81,7 +81,7 @@ describe('User authentication endpoint', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(409);
           expect(res.body.status).to.equal('error');
-          expect(res.body.message).to.equal('Username already exist');
+          expect(res.body.message).to.equal('username already exist');
           done();
         });
     });
@@ -126,6 +126,7 @@ describe('User authentication endpoint', () => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.status).to.equal('success');
           expect(res.body.message).to.equal('User logged in');
+          expect(res.body.data.username).to.equal('acceptable')
           expect(res.body.data.token).to.be.a('string');
           done();
         });

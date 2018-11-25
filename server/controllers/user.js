@@ -18,12 +18,17 @@ class UserController {
    * @memberof UserController
    */
   static createUser(req, res) {
-    const newUser = new User(req.body);
+    const newUser = new User({
+      username: req.body.username,
+      password: req.body.password,
+    });
 
     newUser.save((error, user) => {
       if (error) {
         if (error.message.includes('User validation failed: username')) {
-          return res.status(400).json({
+          const statusCode = error.message.includes('exist') ? 409 : 400;
+
+          return res.status(statusCode).json({
             status: 'error',
             message: error.message.substring(
               error.message.indexOf('username:') + 10,
@@ -38,13 +43,6 @@ class UserController {
               error.message.indexOf('password:') + 10,
               error.message.indexOf('.')).replace('Path', 'Input'),
           });
-        }
-
-        if (error.message.includes('duplicate')) {
-          return res.status(409).json({
-            status: 'error',
-            message: 'Username already exist'
-          })
         }
 
         return res.status(500).json({
@@ -63,6 +61,7 @@ class UserController {
         status: 'success',
         message: 'User created',
         data: {
+          username: user.username,
           token
         }
       });
@@ -104,6 +103,7 @@ class UserController {
             status: 'success',
             message: 'User logged in',
             data: {
+              username: user.username,
               token
             }
           });
