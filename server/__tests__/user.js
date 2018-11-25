@@ -126,6 +126,7 @@ describe('User authentication endpoint', () => {
           expect(res.statusCode).to.equal(200);
           expect(res.body.status).to.equal('success');
           expect(res.body.message).to.equal('User logged in');
+          expect(res.body.data.username).to.equal('acceptable')
           expect(res.body.data.token).to.be.a('string');
           done();
         });

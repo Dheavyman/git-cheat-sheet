@@ -18,7 +18,10 @@ class UserController {
    * @memberof UserController
    */
   static createUser(req, res) {
-    const newUser = new User(req.body);
+    const newUser = new User({
+      username: req.body.username,
+      password: req.body.password,
+    });
 
     newUser.save((error, user) => {
       if (error) {
@@ -58,6 +61,7 @@ class UserController {
         status: 'success',
         message: 'User created',
         data: {
+          username: user.username,
           token
         }
       });
@@ -99,6 +103,7 @@ class UserController {
             status: 'success',
             message: 'User logged in',
             data: {
+              username: user.username,
               token
             }
           });
