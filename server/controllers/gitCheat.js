@@ -1,6 +1,21 @@
 import GitCheat from '../models/gitCheat';
 
+/**
+ * Git cheat controller
+ *
+ * @class GitCheatController
+ */
 class GitCheatController {
+  /**
+   * Create git cheat
+   *
+   * @static
+   * @param {object} req - Request object
+   * @param {object} res - Response object
+   *
+   * @returns {object} Response object
+   * @memberof GitCheatController
+   */
   static createGitCheat(req, res) {
     const newGitCheat = new GitCheat(req.body);
 
@@ -42,7 +57,34 @@ class GitCheatController {
       return res.status(201).json({
         status: 'success',
         message: 'Git cheat created',
-        data: gitCheat,
+        data: { cheat: gitCheat },
+      });
+    });
+  }
+
+  /**
+   * Get all cheats
+   *
+   * @static
+   * @param {object} req - Request object
+   * @param {object} res - Response object
+   *
+   * @returns {object} Response object
+   * @memberof GitCheatController
+   */
+  static getAllCheats(req, res) {
+    GitCheat.find({}, (error, cheats) => {
+      if(error) {
+        return res.status(500).json({
+          status: 'error',
+          message: error.message,
+        })
+      }
+
+      return res.status(200).json({
+        status: 'success',
+        message: 'Cheats fetched',
+        data: { cheats },
       });
     });
   }

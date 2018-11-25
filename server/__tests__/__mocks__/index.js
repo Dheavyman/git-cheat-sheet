@@ -15,7 +15,8 @@ const unknownUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Y
 const cheats = [{
   category: "Make changes",
 	description: "Check the changes made",
-	command: "git status"
+  command: "git status",
+  keywords: [],
 }, {
   category: "Make changes",
 	description: "Move a file with changes made to staging area",
@@ -40,7 +41,7 @@ const createUser = (Model, jwt, isAdmin = false, index = 1) => {
       const token = jwt.sign({
         userId: newUser._id
       }, process.env.JWT_SECRET, {
-        expiresIn: 60 * 60 * 24,
+        expiresIn: 60,
       })
 
       resolve({ newUser, token})
