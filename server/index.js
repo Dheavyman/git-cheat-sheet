@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'test') {
     'error', console.error.bind(console, 'MongoDB connection error:'));
 }
 
-app.use(logger('short'));
+app.use(logger('dev'));
 app.use(bodyParser.json());
 
 routes(app);

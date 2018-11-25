@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
+import uniqueValidator from 'mongoose-unique-validator';
 
 const SALT_WORK_FACTOR = 10;
 
@@ -49,6 +50,10 @@ UserSchema.pre('save', async function(next) {
 UserSchema.methods.validatePassword = async function(password) {
   return bcrypt.compare(password, this.password);
 }
+
+UserSchema.plugin(uniqueValidator, {
+  message: '{PATH} already exist.'
+});
 
 const User = mongoose.model('User', UserSchema);
 

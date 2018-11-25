@@ -81,7 +81,7 @@ describe('User authentication endpoint', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(409);
           expect(res.body.status).to.equal('error');
-          expect(res.body.message).to.equal('Username already exist');
+          expect(res.body.message).to.equal('username already exist');
           done();
         });
     });
