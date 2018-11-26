@@ -13,7 +13,8 @@ const verifyToken = (req, res, next) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
       if (err.message.includes('invalid')
-          || err.message.includes('malformed')) {
+          || err.message.includes('malformed')
+          || err.message.includes('expired')) {
         return res.status(401).json({
           status: 'error',
           message: 'Invalid token'

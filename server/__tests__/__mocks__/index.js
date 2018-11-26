@@ -30,6 +30,9 @@ const cheats = [{
 }, {
   category: "Make changes",
 	description: "Move a file with changes made to staging area",
+}, {
+  category: "Make changes",
+  keywords: ["Change"]
 }];
 
 const createUser = (Model, jwt, isAdmin = false, index = 1) => {
