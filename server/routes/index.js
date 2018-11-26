@@ -14,5 +14,6 @@ export default (app) => {
     .get(verifyToken, authenticateUser, GitCheatController.getAllCheats);
 
   app.route('/api/v1/cheats/:cheatId')
-    .put(verifyToken, authenticateAdmin, GitCheatController.updateGitCheat);
+    .put(verifyToken, authenticateAdmin, GitCheatController.updateGitCheat)
+    .delete(verifyToken, authenticateAdmin, GitCheatController.removeGitCheat);
 };

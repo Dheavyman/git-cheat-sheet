@@ -102,6 +102,13 @@ class GitCheatController {
   static updateGitCheat(req, res) {
     GitCheat.findById(req.params.cheatId, (error, cheat) => {
       if (error) {
+        if (error.message.includes('ObjectId')) {
+          return res.status(400).json({
+            status: 'error',
+            message: 'Invalid cheat Id in parameter',
+          });
+        }
+
         return res.status(500).json({
           status: 'error',
           message: error.message,
@@ -134,6 +141,46 @@ class GitCheatController {
           message: 'Git cheat updated',
           data: { cheat: updatedCheat }
         });
+      });
+    });
+  }
+
+  /**
+   * Remove git cheat
+   *
+   * @static
+   * @param {object} req - Request object
+   * @param {object} res - Response object
+   *
+   * @returns {object} Response object
+   * @memberof GitCheatController
+   */
+  static removeGitCheat(req, res) {
+    GitCheat.findByIdAndDelete(req.params.cheatId, (error, cheat) => {
+      if (error) {
+        if (error.message.includes('ObjectId')) {
+          return res.status(400).json({
+            status: 'error',
+            message: 'Invalid cheat Id in parameter',
+          });
+        }
+
+        return res.status(500).json({
+          status: 'error',
+          message: error.message,
+        });
+      }
+
+      if (!cheat) {
+        return res.status(404).json({
+          status: 'error',
+          message: 'Git cheat not found',
+        });
+      }
+
+      return res.status(200).json({
+        status: 'success',
+        message: 'Git cheat removed',
       });
     });
   }
