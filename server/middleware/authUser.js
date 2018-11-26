@@ -11,9 +11,9 @@ const authenticateUser = (req, res, next) => {
 
     if (user) return next()
 
-    return res.status(404).json({
+    return res.status(401).json({
       status: 'error',
-      message: 'User not found'
+      message: 'Invalid token'
     });
   });
 };

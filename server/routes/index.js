@@ -12,4 +12,7 @@ export default (app) => {
   app.route('/api/v1/cheats')
     .post(verifyToken, authenticateAdmin, GitCheatController.createGitCheat)
     .get(verifyToken, authenticateUser, GitCheatController.getAllCheats);
+
+  app.route('/api/v1/cheats/:cheatId')
+    .put(verifyToken, authenticateAdmin, GitCheatController.updateGitCheat);
 };
