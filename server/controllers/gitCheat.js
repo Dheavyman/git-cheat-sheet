@@ -1,4 +1,5 @@
 import GitCheat from '../models/gitCheat';
+import errorResponse from '../helpers/errorResponse';
 
 /**
  * Git cheat controller
@@ -48,10 +49,7 @@ class GitCheatController {
           });
         }
 
-        return res.status(500).json({
-          status: 'error',
-          message: error.message,
-        });
+        return errorResponse(500, error, res);
       }
 
       return res.status(201).json({
@@ -75,15 +73,12 @@ class GitCheatController {
   static getAllCheats(req, res) {
     GitCheat.find({}, (error, cheats) => {
       if(error) {
-        return res.status(500).json({
-          status: 'error',
-          message: error.message,
-        })
+        return errorResponse(500, error, res);
       }
 
       return res.status(200).json({
         status: 'success',
-        message: 'Cheats fetched',
+        message: 'Git cheats fetched',
         data: { cheats },
       });
     });
@@ -103,23 +98,15 @@ class GitCheatController {
     GitCheat.findById(req.params.cheatId, (error, cheat) => {
       if (error) {
         if (error.message.includes('ObjectId')) {
-          return res.status(400).json({
-            status: 'error',
-            message: 'Invalid cheat Id in parameter',
-          });
+          return errorResponse(
+            400, { message: 'Invalid cheat Id in parameter' }, res);
         }
 
-        return res.status(500).json({
-          status: 'error',
-          message: error.message,
-        });
+        return errorResponse(500, error, res);
       }
 
       if (!cheat) {
-        return res.status(404).json({
-          status: 'error',
-          message: 'Cheat not found',
-        });
+        return errorResponse(404, { message: 'Git cheat not found'}, res);
       }
 
       for (let key in req.body) {
@@ -130,10 +117,7 @@ class GitCheatController {
 
       cheat.save((err, updatedCheat) => {
         if (err) {
-          return res.status(500).json({
-            status: 'error',
-            message: error.message,
-          });
+          return errorResponse(500, error, res);
         }
 
         return res.status(200).json({
@@ -159,23 +143,15 @@ class GitCheatController {
     GitCheat.findByIdAndDelete(req.params.cheatId, (error, cheat) => {
       if (error) {
         if (error.message.includes('ObjectId')) {
-          return res.status(400).json({
-            status: 'error',
-            message: 'Invalid cheat Id in parameter',
-          });
+          return errorResponse(
+            400, { message: 'Invalid cheat Id in parameter' }, res);
         }
 
-        return res.status(500).json({
-          status: 'error',
-          message: error.message,
-        });
+        return errorResponse(500, error, res);
       }
 
       if (!cheat) {
-        return res.status(404).json({
-          status: 'error',
-          message: 'Git cheat not found',
-        });
+        return errorResponse(404, { message: 'Git cheat not found' }, res);
       }
 
       return res.status(200).json({
