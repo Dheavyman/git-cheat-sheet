@@ -1,27 +1,19 @@
 import User from '../models/user';
+import errorResponse from '../helpers/errorResponse';
 
 const authenticateAdmin = (req, res, next) => {
   User.findById(req.decoded.userId, (error, user) => {
     if (error) {
-      return res.status(500).json({
-        status: 'error',
-        message: error.message,
-      });
+      return errorResponse(500, error, res);
     }
 
     if (user) {
       if (user.role === 'admin') return next()
 
-      return res.status(403).json({
-        status: 'error',
-        message: 'Unauthorized access'
-      });
+      return errorResponse(403, { message: 'Unauthorized access' }, res);
     }
 
-    return res.status(404).json({
-      status: 'error',
-      message: 'User not found'
-    });
+    return errorResponse(401, { message: 'Invalid token' }, res);
   });
 };
 

@@ -1,5 +1,6 @@
 import User from '../models/user';
 import jwt from 'jsonwebtoken';
+import errorResponse from '../helpers/errorResponse';
 
 /**
  * User controller class
@@ -45,10 +46,7 @@ class UserController {
           });
         }
 
-        return res.status(500).json({
-          status: 'error',
-          message: error.message,
-        });
+        return errorResponse(500, error, res);
       }
 
       const token = jwt.sign({
@@ -83,10 +81,7 @@ class UserController {
       username: req.body.username.trim()
     }, async (error, user) => {
       if (error) {
-        return res.status(500).json({
-          status: 'error',
-          message: error.message,
-        });
+        return errorResponse(500, error, res);
       }
 
       if (user) {
@@ -110,10 +105,8 @@ class UserController {
         }
       }
 
-      return res.status(401).json({
-        status: 'error',
-        message: 'Username or password incorrect'
-      });
+      return errorResponse(
+        401, { message: 'Username or password incorrect' }, res);
     });
   }
 }

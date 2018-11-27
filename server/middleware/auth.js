@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import errorResponse from '../helpers/errorResponse';
 
 const verifyToken = (req, res, next) => {
   const token = req.headers['x-access-token'];
@@ -15,15 +16,10 @@ const verifyToken = (req, res, next) => {
       if (err.message.includes('invalid')
           || err.message.includes('malformed')
           || err.message.includes('expired')) {
-        return res.status(401).json({
-          status: 'error',
-          message: 'Invalid token'
-        });
+        return errorResponse(401, { message: 'Invalid token' }, res);
       }
-      return res.status(401).json({
-        status: 'error',
-        message: err.message,
-      });
+
+      return errorResponse(401, err, res);
     }
     req.decoded = decoded;
     return next();
