@@ -6,7 +6,20 @@ import configureMockStore from 'redux-mock-store';
 import App from './App';
 
 const mockStore = configureMockStore();
-const store = mockStore({items: []});
+const store = mockStore({
+  userReducer: {
+    user: {},
+    isLoading: false,
+    isLoggedIn: false,
+    error: null,
+  },
+  cheatsReducer: {
+    cheats: [],
+    searchResult: [],
+    keywords: '',
+    error: null
+  }
+});
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

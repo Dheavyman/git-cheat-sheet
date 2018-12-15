@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentForm component should render component successfully 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="input-field col s12"
+  >
+    <textarea
+      className="materialize-textarea"
+      disabled={true}
+      id="comment"
+    />
+    <label
+      htmlFor="comment"
+    >
+      Add comment
+    </label>
+  </div>
+</div>
+`;

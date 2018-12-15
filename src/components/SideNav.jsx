@@ -11,7 +11,7 @@ import { authenticate, logout } from '../actions/users';
  * @className SideNav
  * @extends {Component}
  */
-class SideNav extends Component {
+export class SideNav extends Component {
   constructor(props) {
     super(props);
     this.state = {

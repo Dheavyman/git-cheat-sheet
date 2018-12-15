@@ -1,0 +1,725 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNav component should call handle change when input value changes 1`] = `
+<ul
+  className="sidenav"
+  id="slide-out"
+>
+  <li
+    className="git-logo"
+  >
+    <img
+      alt=""
+      className="logo-img"
+      src="https://res.cloudinary.com/heavyman/image/upload/v1544835375/Git-Icon-Black_b2dvxp.png"
+    />
+    <p>
+      The awesome git cheat sheet
+    </p>
+  </li>
+  <li>
+    <div
+      className="divider"
+    />
+  </li>
+  <div
+    className="row"
+  >
+    <form
+      className="col s12"
+      onSubmit={[Function]}
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="username"
+            name="username"
+            onChange={
+              [MockFunction] {
+                "calls": Array [
+                  Array [
+                    Object {
+                      "target": Object {
+                        "name": "username",
+                        "value": "Mathew",
+                      },
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "target": Object {
+                        "name": "password",
+                        "value": "secret",
+                      },
+                    },
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "isThrow": false,
+                    "value": undefined,
+                  },
+                  Object {
+                    "isThrow": false,
+                    "value": undefined,
+                  },
+                ],
+              }
+            }
+            required={true}
+            type="text"
+          />
+          <label
+            htmlFor="username"
+          >
+            Username
+          </label>
+        </div>
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="password"
+            name="password"
+            onChange={
+              [MockFunction] {
+                "calls": Array [
+                  Array [
+                    Object {
+                      "target": Object {
+                        "name": "username",
+                        "value": "Mathew",
+                      },
+                    },
+                  ],
+                  Array [
+                    Object {
+                      "target": Object {
+                        "name": "password",
+                        "value": "secret",
+                      },
+                    },
+                  ],
+                ],
+                "results": Array [
+                  Object {
+                    "isThrow": false,
+                    "value": undefined,
+                  },
+                  Object {
+                    "isThrow": false,
+                    "value": undefined,
+                  },
+                ],
+              }
+            }
+            required={true}
+            type="password"
+          />
+          <label
+            htmlFor="password"
+          >
+            Password
+          </label>
+        </div>
+        <div
+          className="row center-align"
+        >
+          <button
+            className="waves-effect waves-light btn"
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
+        <div
+          className="row center-align"
+        >
+          Don't have an account? 
+          <a
+            className="cursor-pointer blue-text"
+            href="#!"
+            onClick={[Function]}
+          >
+            Register
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</ul>
+`;
+
+exports[`SideNav component should call handleLogout for logout event 1`] = `
+<ul
+  className="sidenav"
+  id="slide-out"
+>
+  <li
+    className="git-logo"
+  >
+    <a
+      className="logout"
+      href="#!"
+      onClick={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+    >
+      Logout
+    </a>
+    <img
+      alt=""
+      className="logo-img"
+      src="https://res.cloudinary.com/heavyman/image/upload/v1544835375/Git-Icon-Black_b2dvxp.png"
+    />
+    <p>
+      The awesome git cheat sheet
+    </p>
+  </li>
+  <li
+    className="user"
+  >
+    <p
+      className="username"
+    >
+      Hi 
+      <span>
+        username
+      </span>
+    </p>
+  </li>
+  <li>
+    <div
+      className="divider"
+    />
+  </li>
+  <li
+    className="info-text"
+  >
+    <p>
+      Whether you are new to git or just needing a refresher, this cheat sheet will help you discover or remember useful git commands.
+    </p>
+  </li>
+  <div
+    className="row"
+  >
+    <div
+      className="input-field col s12"
+    >
+      <textarea
+        className="materialize-textarea"
+        disabled={true}
+        id="comment"
+      />
+      <label
+        htmlFor="comment"
+      >
+        Add comment
+      </label>
+    </div>
+  </div>
+</ul>
+`;
+
+exports[`SideNav component should call handleSubmit for login event 1`] = `
+<ul
+  className="sidenav"
+  id="slide-out"
+>
+  <li
+    className="git-logo"
+  >
+    <img
+      alt=""
+      className="logo-img"
+      src="https://res.cloudinary.com/heavyman/image/upload/v1544835375/Git-Icon-Black_b2dvxp.png"
+    />
+    <p>
+      The awesome git cheat sheet
+    </p>
+  </li>
+  <li>
+    <div
+      className="divider"
+    />
+  </li>
+  <div
+    className="row"
+  >
+    <form
+      className="col s12"
+      onSubmit={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              Object {
+                "preventDefault": [MockFunction] {
+                  "calls": Array [
+                    Array [],
+                  ],
+                  "results": Array [
+                    Object {
+                      "isThrow": false,
+                      "value": undefined,
+                    },
+                  ],
+                },
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="username"
+            name="username"
+            onChange={[Function]}
+            required={true}
+            type="text"
+          />
+          <label
+            htmlFor="username"
+          >
+            Username
+          </label>
+        </div>
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="password"
+            name="password"
+            onChange={[Function]}
+            required={true}
+            type="password"
+          />
+          <label
+            htmlFor="password"
+          >
+            Password
+          </label>
+        </div>
+        <div
+          className="row center-align"
+        >
+          <button
+            className="waves-effect waves-light btn"
+            disabled={false}
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
+        <div
+          className="row center-align"
+        >
+          Don't have an account? 
+          <a
+            className="cursor-pointer blue-text"
+            href="#!"
+            onClick={[Function]}
+          >
+            Register
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</ul>
+`;
+
+exports[`SideNav component should call handleSubmit for register event 1`] = `
+<ul
+  className="sidenav"
+  id="slide-out"
+>
+  <li
+    className="git-logo"
+  >
+    <img
+      alt=""
+      className="logo-img"
+      src="https://res.cloudinary.com/heavyman/image/upload/v1544835375/Git-Icon-Black_b2dvxp.png"
+    />
+    <p>
+      The awesome git cheat sheet
+    </p>
+  </li>
+  <li>
+    <div
+      className="divider"
+    />
+  </li>
+  <div
+    className="row"
+  >
+    <form
+      className="col s12"
+      onSubmit={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              Object {
+                "preventDefault": [MockFunction] {
+                  "calls": Array [
+                    Array [],
+                  ],
+                  "results": Array [
+                    Object {
+                      "isThrow": false,
+                      "value": undefined,
+                    },
+                  ],
+                },
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="username"
+            name="username"
+            onChange={[Function]}
+            required={true}
+            type="text"
+          />
+          <label
+            htmlFor="username"
+          >
+            Username
+          </label>
+        </div>
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="password"
+            name="password"
+            onChange={[Function]}
+            required={true}
+            type="password"
+          />
+          <label
+            htmlFor="password"
+          >
+            Password
+          </label>
+        </div>
+        <div
+          className="row center-align"
+        >
+          <button
+            className="waves-effect waves-light btn"
+            disabled={false}
+            type="submit"
+          >
+            Register
+          </button>
+        </div>
+        <div
+          className="row center-align"
+        >
+          Already have an account? 
+          <a
+            className="cursor-pointer blue-text"
+            href="#!"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</ul>
+`;
+
+exports[`SideNav component should call handleToggleAuth to show login or register 1`] = `
+<ul
+  className="sidenav"
+  id="slide-out"
+>
+  <li
+    className="git-logo"
+  >
+    <img
+      alt=""
+      className="logo-img"
+      src="https://res.cloudinary.com/heavyman/image/upload/v1544835375/Git-Icon-Black_b2dvxp.png"
+    />
+    <p>
+      The awesome git cheat sheet
+    </p>
+  </li>
+  <li>
+    <div
+      className="divider"
+    />
+  </li>
+  <div
+    className="row"
+  >
+    <form
+      className="col s12"
+      onSubmit={[Function]}
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="username"
+            name="username"
+            onChange={[Function]}
+            required={true}
+            type="text"
+          />
+          <label
+            htmlFor="username"
+          >
+            Username
+          </label>
+        </div>
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="password"
+            name="password"
+            onChange={[Function]}
+            required={true}
+            type="password"
+          />
+          <label
+            htmlFor="password"
+          >
+            Password
+          </label>
+        </div>
+        <div
+          className="row center-align"
+        >
+          <button
+            className="waves-effect waves-light btn"
+            type="submit"
+          >
+            Register
+          </button>
+        </div>
+        <div
+          className="row center-align"
+        >
+          Already have an account? 
+          <a
+            className="cursor-pointer blue-text"
+            href="#!"
+            onClick={
+              [MockFunction] {
+                "calls": Array [
+                  Array [],
+                ],
+                "results": Array [
+                  Object {
+                    "isThrow": false,
+                    "value": undefined,
+                  },
+                ],
+              }
+            }
+          >
+            Login
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</ul>
+`;
+
+exports[`SideNav component should render component successfully 1`] = `
+<ul
+  className="sidenav"
+  id="slide-out"
+>
+  <li
+    className="git-logo"
+  >
+    <img
+      alt=""
+      className="logo-img"
+      src="https://res.cloudinary.com/heavyman/image/upload/v1544835375/Git-Icon-Black_b2dvxp.png"
+    />
+    <p>
+      The awesome git cheat sheet
+    </p>
+  </li>
+  <li>
+    <div
+      className="divider"
+    />
+  </li>
+  <li
+    className="info-text"
+  >
+    <p>
+      Whether you are new to git or just needing a refresher, this cheat sheet will help you discover or remember useful git commands.
+    </p>
+    <p
+      className="center-align"
+    >
+      Click 
+      <a
+        className="cursor-pointer blue-text"
+        href="#!"
+        onClick={[Function]}
+      >
+        here 
+      </a>
+      for more privilege.
+    </p>
+  </li>
+</ul>
+`;
+
+exports[`SideNav component should show login form when user clicks to login 1`] = `
+<ul
+  className="sidenav"
+  id="slide-out"
+>
+  <li
+    className="git-logo"
+  >
+    <img
+      alt=""
+      className="logo-img"
+      src="https://res.cloudinary.com/heavyman/image/upload/v1544835375/Git-Icon-Black_b2dvxp.png"
+    />
+    <p>
+      The awesome git cheat sheet
+    </p>
+  </li>
+  <li>
+    <div
+      className="divider"
+    />
+  </li>
+  <div
+    className="row"
+  >
+    <form
+      className="col s12"
+      onSubmit={[Function]}
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="username"
+            name="username"
+            onChange={[Function]}
+            required={true}
+            type="text"
+          />
+          <label
+            htmlFor="username"
+          >
+            Username
+          </label>
+        </div>
+        <div
+          className="input-field col s12"
+        >
+          <input
+            className="validate"
+            id="password"
+            name="password"
+            onChange={[Function]}
+            required={true}
+            type="password"
+          />
+          <label
+            htmlFor="password"
+          >
+            Password
+          </label>
+        </div>
+        <div
+          className="row center-align"
+        >
+          <button
+            className="waves-effect waves-light btn"
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
+        <div
+          className="row center-align"
+        >
+          Don't have an account? 
+          <a
+            className="cursor-pointer blue-text"
+            href="#!"
+            onClick={[Function]}
+          >
+            Register
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</ul>
+`;

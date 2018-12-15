@@ -2,21 +2,21 @@ import * as actionTypes from './actionTypes';
 
 const SITE_URL = `${process.env.REACT_APP_SITE_URL}/api/v1`;
 
-const authRequest = () => ({
+export const authRequest = () => ({
   type: actionTypes.AUTH_REQUEST,
 });
 
-const authSuccess = user => ({
+export const authSuccess = user => ({
   type: actionTypes.AUTH_SUCCESS,
   payload: user
 });
 
-const authFailure = error => ({
+export const authFailure = error => ({
   type: actionTypes.AUTH_FAILURE,
   payload: error
 });
 
-const authenticate = (data, type = 'Login') => async (dispatch) => {
+export const authenticate = (data, type = 'Login') => async (dispatch) => {
   dispatch(authRequest());
   try {
     let response;
@@ -55,12 +55,10 @@ const authenticate = (data, type = 'Login') => async (dispatch) => {
   }
 };
 
-const logout = () => async (dispatch) => {
+export const logout = () => async (dispatch) => {
   localStorage.removeItem('git-cheat-username');
   localStorage.removeItem('auth-token');
   dispatch({
     type: actionTypes.LOGOUT
   });
 };
-
-export { authenticate, logout };

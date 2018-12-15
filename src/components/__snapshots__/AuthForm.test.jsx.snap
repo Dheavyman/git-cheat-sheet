@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthForm component should disable submit button when loading 1`] = `
+<div
+  className="row"
+>
+  <form
+    className="col s12"
+    onSubmit={[MockFunction]}
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="input-field col s12"
+      >
+        <input
+          className="validate"
+          id="username"
+          name="username"
+          onChange={[MockFunction]}
+          required={true}
+          type="text"
+        />
+        <label
+          htmlFor="username"
+        >
+          Username
+        </label>
+      </div>
+      <div
+        className="input-field col s12"
+      >
+        <input
+          className="validate"
+          id="password"
+          name="password"
+          onChange={[MockFunction]}
+          required={true}
+          type="password"
+        />
+        <label
+          htmlFor="password"
+        >
+          Password
+        </label>
+      </div>
+      <div
+        className="row center-align"
+      >
+        <button
+          className="waves-effect waves-light btn"
+          disabled={true}
+          type="submit"
+        >
+          Login
+        </button>
+      </div>
+      <div
+        className="row center-align"
+      >
+        Don't have an account? 
+        <a
+          className="cursor-pointer blue-text"
+          href="#!"
+          onClick={[MockFunction]}
+        >
+          Register
+        </a>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`AuthForm component should render successfully 1`] = `
+<div
+  className="row"
+>
+  <form
+    className="col s12"
+    onSubmit={[MockFunction]}
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="input-field col s12"
+      >
+        <input
+          className="validate"
+          id="username"
+          name="username"
+          onChange={[MockFunction]}
+          required={true}
+          type="text"
+        />
+        <label
+          htmlFor="username"
+        >
+          Username
+        </label>
+      </div>
+      <div
+        className="input-field col s12"
+      >
+        <input
+          className="validate"
+          id="password"
+          name="password"
+          onChange={[MockFunction]}
+          required={true}
+          type="password"
+        />
+        <label
+          htmlFor="password"
+        >
+          Password
+        </label>
+      </div>
+      <div
+        className="row center-align"
+      >
+        <button
+          className="waves-effect waves-light btn"
+          disabled={false}
+          type="submit"
+        >
+          Login
+        </button>
+      </div>
+      <div
+        className="row center-align"
+      >
+        Don't have an account? 
+        <a
+          className="cursor-pointer blue-text"
+          href="#!"
+          onClick={[MockFunction]}
+        >
+          Register
+        </a>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`AuthForm component should render with register button 1`] = `
+<div
+  className="row"
+>
+  <form
+    className="col s12"
+    onSubmit={[MockFunction]}
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="input-field col s12"
+      >
+        <input
+          className="validate"
+          id="username"
+          name="username"
+          onChange={[MockFunction]}
+          required={true}
+          type="text"
+        />
+        <label
+          htmlFor="username"
+        >
+          Username
+        </label>
+      </div>
+      <div
+        className="input-field col s12"
+      >
+        <input
+          className="validate"
+          id="password"
+          name="password"
+          onChange={[MockFunction]}
+          required={true}
+          type="password"
+        />
+        <label
+          htmlFor="password"
+        >
+          Password
+        </label>
+      </div>
+      <div
+        className="row center-align"
+      >
+        <button
+          className="waves-effect waves-light btn"
+          disabled={false}
+          type="submit"
+        >
+          Register
+        </button>
+      </div>
+      <div
+        className="row center-align"
+      >
+        Already have an account? 
+        <a
+          className="cursor-pointer blue-text"
+          href="#!"
+          onClick={[MockFunction]}
+        >
+          Login
+        </a>
+      </div>
+    </div>
+  </form>
+</div>
+`;

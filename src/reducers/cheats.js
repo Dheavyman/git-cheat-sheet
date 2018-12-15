@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 
-const initialState = {
+export const initialState = {
   cheats: [],
   searchResult: [],
   keywords: '',
@@ -24,7 +24,9 @@ const cheats = ( state = initialState, action) => {
       const keywords = action.payload.toLowerCase().trim();
       const cheats = state.cheats.filter(
         cheat => cheat.category.toLowerCase().includes(keywords)
-        || cheat.description.toLowerCase().includes(keywords));
+        || cheat.description.toLowerCase().includes(keywords)
+        || cheat.keywords.some(keyword => keyword.toLowerCase()
+        .includes(keywords)));
 
       return {
         ...state,

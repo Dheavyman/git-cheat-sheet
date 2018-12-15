@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cheat component should render component successfully 1`] = `
+<div
+  className="cheat"
+>
+  <p
+    className="cheat-description"
+  >
+    cheat description
+  </p>
+  <p
+    className="cheat-command"
+  >
+    $ 
+    cheat command
+  </p>
+</div>
+`;
