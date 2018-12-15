@@ -6,19 +6,28 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
-    "dotenv": "^6.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "joi": "^14.1.0",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.13",
     "mongoose-unique-validator": "^2.0.2",
     "morgan": "^1.9.1",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-masonry-component": "^6.2.1",
+    "react-redux": "^6.0.0",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,10 +35,21 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:dev": "nodemon --exec babel-node ./server",
-    "test:server": "NODE_ENV=test nyc mocha --require @babel/register server/__tests__/index.js --exit"
+    "test:server": "NODE_ENV=test nyc mocha --require @babel/register server/__tests__/index.js --exit",
+    "build:server": "babel ./server -d ./dist",
+    "predeploy": "yarn build && yarn build:server",
+    "deploy": "node ./dist/main",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "env": {
+      "browser": true,
+      "mocha": true
+    },
+    "globals": {
+      "M": true
+    }
   },
   "browserslist": [
     ">0.2%",

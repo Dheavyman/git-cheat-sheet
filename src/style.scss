@@ -1,0 +1,126 @@
+body {
+  background-color: #424250;
+  color: #ffffff;
+  font-weight: 200;
+}
+
+.header {
+  margin-bottom: 0;
+
+  .sidenav-trigger {
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
+
+.sidenav {
+  background-color: #424250;
+
+  .logout {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 300;
+    position: absolute;
+    right: 0;
+    top:0
+  }
+
+  input, textarea {
+    color: #ffffff;
+    font-weight: 200;
+  }
+
+  .btn {
+    background-color: #029BE5;
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+  }
+
+  .info-text {
+    color: #adadc1;
+    font-size: 14px;
+    line-height: 25px !important;
+    margin: 10px;
+  }
+}
+
+.git-logo {
+  line-height: 25px !important;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  text-align: center;
+
+  .logo-img {
+    width: 50px;
+  }
+
+  p {
+    color: #adadb1;
+    font-size: 12px;
+    margin: 0;
+  }
+}
+
+.user {
+  line-height: 25px !important;
+  text-align: center;
+  margin-right: 10px;
+
+  p {
+    color: #adadb1;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .username {
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+.search-bar {
+  margin-bottom: 0;
+  margin-top: 0;
+
+  input {
+    color: #ffffff;
+    font-weight: 300;
+  }
+
+  label {
+    text-align: center;
+  }
+}
+
+.category-card {
+  width: 32%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+
+  .category {
+    background-color: #212121;
+    padding: 5px;
+    margin-top: 0;
+  }
+}
+
+.cheat {
+  padding: 0 8px;
+
+  .cheat-description {
+    margin-bottom: 5px;
+  }
+
+  .cheat-command {
+    cursor: pointer;
+    font-family: 'Inconsolata', monospace;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
