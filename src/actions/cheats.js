@@ -2,12 +2,12 @@ import * as actionTypes from './actionTypes';
 
 const SITE_URL = `${process.env.REACT_APP_SITE_URL}/api/v1`;
 
-const fetchCheatsSuccess = cheats => ({
+export const fetchCheatsSuccess = cheats => ({
   type: actionTypes.FETCH_CHEATS_SUCCESS,
   payload: cheats
 });
 
-const fetchCheatsFailure = error => ({
+export const fetchCheatsFailure = error => ({
   type: actionTypes.FETCH_CHEATS_FAILURE,
   payload: error
 });

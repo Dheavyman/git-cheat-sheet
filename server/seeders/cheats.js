@@ -26,7 +26,7 @@ const cheats = [
   {
     "category": "Configuration",
     "command": "git config --global user.email [email address]",
-    "description": "Sets the email you want atached to your commit transactions",
+    "description": "Sets the email you want attached to your commit transactions",
     "keywords": ["configuration", "name", "email", "user"]
   },
   {
@@ -50,7 +50,7 @@ const cheats = [
   {
     "category": "Make Changes",
     "command": "git status",
-    "description": "Lists all new or modified files to be commited",
+    "description": "Lists all new or modified files to be committed",
     "keywords": ["change", "modifications", "commit"]
   }
 ];
