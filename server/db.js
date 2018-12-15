@@ -1,6 +1,9 @@
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
+import GitCheat from './models/gitCheat';
+import cheats from './seeders/cheats';
+
 dotenv.config();
 
 let DB_URL;
@@ -17,6 +20,15 @@ if(process.env.NODE_ENV !== 'test') {
     useCreateIndex: true,
   }, () => {
     console.log('Database connected');
+    if (process.env.NODE_ENV !== 'production') {
+      cheats.forEach(cheat => {
+        GitCheat.findOne({command: cheat.command}, (error, existingCheat) => {
+          if(!error && !existingCheat) {
+            GitCheat.create(cheat);
+          }
+        });
+      });
+    }
   });
 }
 

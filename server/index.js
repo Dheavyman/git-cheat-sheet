@@ -1,9 +1,13 @@
 import dotenv from 'dotenv';
+import '@babel/register';
+import path from 'path';
 import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 import mongoose from './db';
+import renderer from './middleware/renderer';
 import routes from './routes';
 
 dotenv.config();
@@ -17,16 +21,15 @@ if (process.env.NODE_ENV !== 'test') {
     'error', console.error.bind(console, 'MongoDB connection error:'));
 }
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
-routes(app);
+app.get('/', renderer);
 
-app.get('/', (req, res) => {
-  return res.status(200).json({
-    message: 'Welcome to the home route'
-  });
-});
+app.use(express.static(path.join(__dirname, '..', 'build')))
+
+routes(app);
 
 app.all('*', (req, res) => {
   return res.status(404).json({
