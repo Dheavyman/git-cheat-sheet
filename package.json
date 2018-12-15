@@ -2,6 +2,9 @@
   "name": "git-cheat-sheet",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "10.11.0"
+  },
   "dependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
@@ -38,7 +41,7 @@
     "test:server": "NODE_ENV=test nyc mocha --require @babel/register server/__tests__/index.js --exit",
     "build:server": "babel ./server -d ./dist",
     "predeploy": "yarn build && yarn build:server",
-    "deploy": "node ./dist/main",
+    "deploy": "node ./dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "eslintConfig": {
