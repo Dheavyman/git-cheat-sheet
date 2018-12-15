@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component should render component successfully 1`] = `
+<div
+  className="row search-bar"
+>
+  <form
+    className="col s6 offset-s3"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="input-field col s12"
+      >
+        <i
+          className="material-icons prefix"
+        >
+          search
+        </i>
+        <input
+          className="center-align validate"
+          id="search"
+          onChange={[Function]}
+          type="text"
+        />
+        <label
+          htmlFor="search"
+        >
+          THE AWESOME GIT CHEAT SHEET
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+`;

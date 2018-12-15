@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheatCategories component should render component successfully 1`] = `
+<div>
+  <MasonryComponent
+    className=""
+    disableImagesLoaded={false}
+    elementType="div"
+    enableResizableChildren={false}
+    imagesLoadedOptions={Object {}}
+    onLayoutComplete={[Function]}
+    onRemoveComplete={[Function]}
+    options={Object {}}
+    updateOnEachImageLoad={false}
+  >
+    <CheatCategory
+      category="cheat category"
+      cheats={
+        Array [
+          Object {
+            "_id": "cheat id",
+            "command": "cheat command",
+            "description": "cheat description",
+          },
+        ]
+      }
+    />
+    <CheatCategory
+      category="another category"
+      cheats={
+        Array [
+          Object {
+            "_id": "another cheat id",
+            "command": "another cheat command",
+            "description": "another cheat description",
+          },
+        ]
+      }
+    />
+  </MasonryComponent>
+</div>
+`;

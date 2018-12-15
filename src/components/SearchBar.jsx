@@ -15,7 +15,7 @@ const propTypes = {
  * Search bar component
  *
  */
-const SearchBar = ({ actions: { handleSearch } }) => (
+export const SearchBar = ({ actions: { handleSearch } }) => (
   <div className="row search-bar">
     <form className="col s6 offset-s3">
       <div className="row">

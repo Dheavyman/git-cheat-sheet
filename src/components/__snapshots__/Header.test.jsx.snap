@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should render component successfully 1`] = `
+<div
+  className="row header"
+>
+  <div
+    className="col s1 push-s11"
+  >
+    <a
+      className="sidenav-trigger"
+      data-target="slide-out"
+      href="#!"
+    >
+      <i
+        className="material-icons"
+      >
+        menu
+      </i>
+    </a>
+  </div>
+  <div
+    className="col s11 pull-s1"
+  >
+    <Connect(SearchBar) />
+  </div>
+</div>
+`;

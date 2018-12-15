@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheatCategory component should render component successfully 1`] = `
+<div
+  className="category-card"
+>
+  <h6
+    className="category"
+  >
+    cheat category
+  </h6>
+  <div
+    className="cheat"
+  >
+    <p
+      className="cheat-description"
+    >
+      cheat description
+    </p>
+    <p
+      className="cheat-command"
+    >
+      $ 
+      cheat command
+    </p>
+  </div>
+  <div
+    className="cheat"
+  >
+    <p
+      className="cheat-description"
+    >
+      another cheat description
+    </p>
+    <p
+      className="cheat-command"
+    >
+      $ 
+      another cheat command
+    </p>
+  </div>
+</div>
+`;

@@ -6,7 +6,7 @@ import Masonry from 'react-masonry-component';
 import { fetchCheats } from '../actions/cheats';
 import CheatCategory from './CheatCategory';
 
-class CheatCategories extends Component{
+export class CheatCategories extends Component{
   render() {
     const { categorizedCheats } = this.props;
 
