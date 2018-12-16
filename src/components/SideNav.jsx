@@ -19,6 +19,7 @@ export class SideNav extends Component {
       username: '',
       password: '',
       showForm: false,
+      errorMessage: ''
     }
     this.initializeSidenav = this.initializeSidenav.bind(this);
     this.handleToggleAuth = this.handleToggleAuth.bind(this);
@@ -52,7 +53,8 @@ export class SideNav extends Component {
    */
   handleToggleAuth() {
     this.setState({
-      forLogin: !this.state.forLogin
+      forLogin: !this.state.forLogin,
+      errorMessage: '',
     })
   }
 
@@ -100,6 +102,11 @@ export class SideNav extends Component {
             })
           }
         })
+        .catch(error => {
+          this.setState({
+            errorMessage: error.message
+          });
+        });
     } else {
       authenticate({ username, password }, 'Register')
         .then(() => {
@@ -109,7 +116,12 @@ export class SideNav extends Component {
             })
           }
         })
-    }
+        .catch(error => {
+          this.setState({
+            errorMessage: error.message
+          });
+        });
+      }
   }
 
   /**
@@ -122,7 +134,7 @@ export class SideNav extends Component {
   }
 
   render() {
-    const { forLogin, showForm } = this.state;
+    const { forLogin, showForm, errorMessage } = this.state;
     const { isLoading, isLoggedIn, user } = this.props;
 
     return (
@@ -158,6 +170,7 @@ export class SideNav extends Component {
               handleToggleAuth={this.handleToggleAuth}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
+              errorMessage={errorMessage}
             />
           : <li className="info-text">
             <p>Whether you are new to git or just needing a refresher,
@@ -186,5 +199,5 @@ export class SideNav extends Component {
 export default connect(({ userReducer: { isLoading, isLoggedIn, user } }) => ({
   isLoading: isLoading,
   isLoggedIn: isLoggedIn,
-  user: user
+  user,
 }), {authenticate, logout})(SideNav);

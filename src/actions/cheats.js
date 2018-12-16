@@ -13,8 +13,9 @@ export const fetchCheatsFailure = error => ({
 });
 
 const fetchCheats = () => async (dispatch) => {
+  let response;
   try {
-    const response = await fetch(`${SITE_URL}/cheats`);
+    response = await fetch(`${SITE_URL}/cheats`);
 
     if (response.ok) {
       const jsonData = await response.json();
@@ -24,7 +25,10 @@ const fetchCheats = () => async (dispatch) => {
       throw new Error(response.statusText);
     }
   } catch(error) {
+      const errorData = await response.json();
       dispatch(fetchCheatsFailure(error.message));
+
+      throw(errorData)
   }
 }
 

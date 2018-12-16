@@ -13,6 +13,7 @@ describe('AuthForm component', () => {
       handleSubmit: jest.fn(),
       handleToggleAuth: jest.fn(),
       isLoading: false,
+      errorMessage: ''
     };
   });
 

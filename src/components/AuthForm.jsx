@@ -10,7 +10,7 @@ import React from 'react';
  * @param {boolean} isLoading - Form submit status
  */
 const AuthForm = ({ forLogin, handleChange, handleSubmit,
-  handleToggleAuth, isLoading }) => (
+  handleToggleAuth, isLoading, errorMessage }) => (
   <div className="row">
     <form className="col s12" onSubmit={handleSubmit}>
       <div className="row">
@@ -36,6 +36,9 @@ const AuthForm = ({ forLogin, handleChange, handleSubmit,
           />
           <label htmlFor="password">Password</label>
         </div>
+        {errorMessage &&
+        <div className="row center-align red-text">{errorMessage}</div>
+        }
         <div className="row center-align">
           <button
             type="submit"
