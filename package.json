@@ -2,9 +2,6 @@
   "name": "git-cheat-sheet",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "10.11.0"
-  },
   "dependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
