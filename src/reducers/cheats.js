@@ -7,6 +7,14 @@ export const initialState = {
   error: null
 };
 
+/**
+ * Cheats reducer
+ *
+ * @param {object} [state=initialState] - State
+ * @param {object} action - Action
+ *
+ * @returns {object} New state
+ */
 const cheats = ( state = initialState, action) => {
   switch(action.type) {
     case actionTypes.FETCH_CHEATS_SUCCESS:

@@ -2,6 +2,14 @@ import React from 'react';
 
 import Cheat from './Cheat';
 
+/**
+ * Cheat category component
+ *
+ * @param {string} category - Cheat category
+ * @param {string} cheats - Cheats in a category
+ *
+ * @returns {object} React element
+ */
 const CheatCategory = ({ category, cheats}) => {
   return (
     <div className="category-card">

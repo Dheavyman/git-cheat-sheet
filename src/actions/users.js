@@ -18,8 +18,8 @@ export const authFailure = error => ({
 
 export const authenticate = (data, type = 'Login') => async (dispatch) => {
   dispatch(authRequest());
+  let response;
   try {
-    let response;
     if (type === 'Register') {
       response = await fetch(`${SITE_URL}/auth/signup`, {
         method: 'POST',
@@ -51,7 +51,10 @@ export const authenticate = (data, type = 'Login') => async (dispatch) => {
       throw new Error(response.statusText);
     }
   } catch(error) {
+      const errorData = await response.json();
       dispatch(authFailure(error.message));
+
+      throw(errorData);
   }
 };
 

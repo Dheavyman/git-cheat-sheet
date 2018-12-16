@@ -45,6 +45,7 @@ exports[`AuthForm component should disable submit button when loading 1`] = `
           Password
         </label>
       </div>
+      
       <div
         className="row center-align"
       >
@@ -118,6 +119,7 @@ exports[`AuthForm component should render successfully 1`] = `
           Password
         </label>
       </div>
+      
       <div
         className="row center-align"
       >
@@ -191,6 +193,7 @@ exports[`AuthForm component should render with register button 1`] = `
           Password
         </label>
       </div>
+      
       <div
         className="row center-align"
       >

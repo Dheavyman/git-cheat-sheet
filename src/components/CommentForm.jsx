@@ -3,6 +3,7 @@ import React from 'react';
 /**
  * Comment form component
  *
+ * @returns {object} React element
  */
 const CommentForm = () => (
   <div className="row">

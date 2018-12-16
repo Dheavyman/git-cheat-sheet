@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 
 import App from '../../src/components/App';
 import rootReducer from '../../src/reducers';
-import cheats from '../seeders/cheats';
+import GitCheat from '../models/gitCheat';
 
 const renderer = (req, res) => {
   const filePath = path.resolve(__dirname, '..', '..', 'build', 'index.html');
@@ -19,65 +19,40 @@ const renderer = (req, res) => {
       res.status(404).end();
     }
 
-    // GroceryItem.find({}, (error, items) => {
-    //   if (error) {
-    //     console.log('An error occurred: ', error);
-    //   }
-    //   const preLoadedState = {
-    //     items,
-    //     error: null
-    //   }
-    //   const store = createStore(
-    //     reducer,
-    //     preLoadedState,
-    //     applyMiddleware(thunk)
-    //   );
-    //   const reactApp = renderToString(
-    //     <Provider store={store}>
-    //       <App />
-    //     </Provider>
-    //   );
-    //   const renderedApp = htmlData.replace(
-    //     '<div id="root"></div>',
-    //     `<div id="root">${reactApp}</div>
-    //     <script>
-    //     window.__PRELOADED_STATE__ = ${JSON.stringify(preLoadedState).replace(
-    //       /</g,
-    //       '\\u003c'
-    //     )}
-    //     </script>`
-    //   );
+    GitCheat.find({}, (error, cheats) => {
+      if (error) {
+        console.log('An error occurred: ', error);
+      }
 
-    //   return res.send(renderedApp);
-    // });
-    const preLoadedState = {
-      cheatsReducer: {
-        cheats,
-      },
-      error: null
-    }
-    const store = createStore(
-      rootReducer,
-      preLoadedState,
-      applyMiddleware(thunk)
-    );
-    const reactApp = renderToString(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-    const renderedApp = htmlData.replace(
-      '<div id="root"></div>',
-      `<div id="root">${reactApp}</div>
-      <script>
-      window.__PRELOADED_STATE__ = ${JSON.stringify(preLoadedState).replace(
-        /</g,
-        '\\u003c'
-      )}
-      </script>`
-    );
+      const preLoadedState = {
+        cheatsReducer: {
+          cheats,
+        },
+        error: null
+      }
+      const store = createStore(
+        rootReducer,
+        preLoadedState,
+        applyMiddleware(thunk)
+      );
+      const reactApp = renderToString(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+      const renderedApp = htmlData.replace(
+        '<div id="root"></div>',
+        `<div id="root">${reactApp}</div>
+        <script>
+        window.__PRELOADED_STATE__ = ${JSON.stringify(preLoadedState).replace(
+          /</g,
+          '\\u003c'
+        )}
+        </script>`
+      );
 
-    return res.send(renderedApp);
+      return res.send(renderedApp);
+    });
   });
 };
 

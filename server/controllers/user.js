@@ -78,7 +78,7 @@ class UserController {
    */
   static loginUser(req, res) {
     User.findOne({
-      username: req.body.username.trim()
+      username: req.body.username.toLowerCase().trim()
     }, async (error, user) => {
       if (error) {
         return errorResponse(500, error, res);

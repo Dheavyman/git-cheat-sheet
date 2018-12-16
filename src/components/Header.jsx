@@ -5,6 +5,7 @@ import SearchBar from './SearchBar';
 /**
  * Header component
  *
+ * @returns {object} React element
  */
 const Header = () => (
   <div className="row header">
