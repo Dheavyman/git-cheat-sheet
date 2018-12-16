@@ -7,6 +7,14 @@ export const initialState = {
   error: null,
 };
 
+/**
+ * User reducer
+ *
+ * @param {object} [state=initialState] - State
+ * @param {object} action - Action
+ *
+ * @returns {object} New state
+ */
 const user = (state = initialState, action) => {
   switch(action.type) {
     case actionTypes.AUTH_REQUEST:

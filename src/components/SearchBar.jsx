@@ -14,6 +14,7 @@ const propTypes = {
 /**
  * Search bar component
  *
+ * @returns {object} React element
  */
 export const SearchBar = ({ actions: { handleSearch } }) => (
   <div className="row search-bar">

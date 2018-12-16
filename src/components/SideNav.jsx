@@ -112,6 +112,11 @@ export class SideNav extends Component {
     }
   }
 
+  /**
+   * Handle logout event
+   *
+   * @memberof SideNav
+   */
   handleLogout() {
     this.props.logout();
   }
