@@ -37,8 +37,8 @@
     "start:dev": "nodemon --exec babel-node ./server",
     "test:server": "NODE_ENV=test nyc mocha --require @babel/register server/__tests__/index.js --exit",
     "build:server": "babel ./server -d ./dist",
-    "predeploy": "yarn build && yarn build:server",
-    "deploy": "node ./dist",
+    "postinstall": "yarn build && yarn build:server",
+    "start-prod": "node ./dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "eslintConfig": {
