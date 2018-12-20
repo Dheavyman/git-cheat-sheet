@@ -28,11 +28,11 @@ const fetchCheats = () => async (dispatch) => {
       const errorData = await response.json();
       dispatch(fetchCheatsFailure(error.message));
 
-      throw(errorData)
+      return () => { throw errorData }
   }
 }
 
-const handleSearch = keywords => (dispatch) => {
+const handleSearch = keywords => async (dispatch) => {
   dispatch({
     type: actionTypes.SEARCH_CHEATS,
     payload: keywords

@@ -52,7 +52,7 @@ describe('User authentication endpoint', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
           expect(res.body.status).to.equal('error');
-          expect(res.body.message).to.equal('Password must contain at least 8 characters');
+          expect(res.body.message).to.equal('Password must contain at least 6 characters');
           done();
         });
     });

@@ -97,6 +97,9 @@ describe('SideNav component', () => {
     renderer.root.findByType('form').props
       .onSubmit({ preventDefault: jest.fn() });
 
+    props = {...props, isLoggedIn: true}
+    renderer.update(<SideNav {...props} />)
+
     expect(handleSubmitSpy).toBeCalled();
     expect(renderer.toJSON()).toMatchSnapshot();
   });
@@ -118,6 +121,9 @@ describe('SideNav component', () => {
     renderer.root.instance.state.password = 'password1';
     renderer.root.findByType('form').props
       .onSubmit({ preventDefault: jest.fn() });
+
+      props = {...props, isLoggedIn: true}
+      renderer.update(<SideNav {...props} />)
 
     expect(handleSubmitSpy).toBeCalled();
     expect(renderer.toJSON()).toMatchSnapshot();

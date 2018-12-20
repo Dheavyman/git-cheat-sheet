@@ -246,6 +246,13 @@ exports[`SideNav component should call handleSubmit for login event 1`] = `
   <li
     className="git-logo"
   >
+    <a
+      className="logout"
+      href="#!"
+      onClick={[Function]}
+    >
+      Logout
+    </a>
     <img
       alt=""
       className="logo-img"
@@ -253,6 +260,18 @@ exports[`SideNav component should call handleSubmit for login event 1`] = `
     />
     <p>
       The awesome git cheat sheet
+    </p>
+  </li>
+  <li
+    className="user"
+  >
+    <p
+      className="username"
+    >
+      Hi 
+      <span>
+        username
+      </span>
     </p>
   </li>
   <li>
@@ -357,6 +376,24 @@ exports[`SideNav component should call handleSubmit for login event 1`] = `
       </div>
     </form>
   </div>
+  <div
+    className="row"
+  >
+    <div
+      className="input-field col s12"
+    >
+      <textarea
+        className="materialize-textarea"
+        disabled={true}
+        id="comment"
+      />
+      <label
+        htmlFor="comment"
+      >
+        Add comment
+      </label>
+    </div>
+  </div>
 </ul>
 `;
 
@@ -368,6 +405,13 @@ exports[`SideNav component should call handleSubmit for register event 1`] = `
   <li
     className="git-logo"
   >
+    <a
+      className="logout"
+      href="#!"
+      onClick={[Function]}
+    >
+      Logout
+    </a>
     <img
       alt=""
       className="logo-img"
@@ -375,6 +419,18 @@ exports[`SideNav component should call handleSubmit for register event 1`] = `
     />
     <p>
       The awesome git cheat sheet
+    </p>
+  </li>
+  <li
+    className="user"
+  >
+    <p
+      className="username"
+    >
+      Hi 
+      <span>
+        username
+      </span>
     </p>
   </li>
   <li>
@@ -478,6 +534,24 @@ exports[`SideNav component should call handleSubmit for register event 1`] = `
         </div>
       </div>
     </form>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="input-field col s12"
+    >
+      <textarea
+        className="materialize-textarea"
+        disabled={true}
+        id="comment"
+      />
+      <label
+        htmlFor="comment"
+      >
+        Add comment
+      </label>
+    </div>
   </div>
 </ul>
 `;

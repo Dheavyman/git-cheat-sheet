@@ -192,32 +192,6 @@ describe('Git cheat endpoint', () => {
       });
     });
 
-    it('should return an error for unauthenticated user', done => {
-      server.get('/api/v1/cheats')
-        .set('Connection', 'keep alive')
-        .set('Accept', 'application/json')
-        .set('x-access-token', unknownUserToken)
-        .end((err, res) => {
-          expect(res.statusCode).to.equal(401);
-          expect(res.body.status).to.equal('error');
-          expect(res.body.message).to.equal('Invalid token');
-          done();
-        });
-    });
-
-    it('should return an error for non existing user', done => {
-      server.get('/api/v1/cheats')
-        .set('Connection', 'keep alive')
-        .set('Accept', 'application/json')
-        .set('x-access-token', nonExistingUserToken)
-        .end((err, res) => {
-          expect(res.statusCode).to.equal(401);
-          expect(res.body.status).to.equal('error');
-          expect(res.body.message).to.equal('Invalid token');
-          done();
-        });
-    });
-
     it('should get all cheats for authenticated user', done => {
       server.get('/api/v1/cheats')
         .set('Connection', 'keep alive')
